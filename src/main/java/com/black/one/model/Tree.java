@@ -19,5 +19,7 @@ public class Tree {
 
     private String pid;
 
+    private String name;
+
     private List<Tree> child;
 }

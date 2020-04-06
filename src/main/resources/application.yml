@@ -9,4 +9,11 @@ spring:
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
+  #控制台打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+#日志打印sql
+logging:
+  level:
+    com.eth.wallet.mapper: debug

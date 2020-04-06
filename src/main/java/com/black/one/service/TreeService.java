@@ -1,6 +1,7 @@
 package com.black.one.service;
 
 import com.black.one.entity.Region;
+import com.black.one.model.Tree;
 
 import java.util.List;
 
@@ -18,5 +19,5 @@ public interface TreeService {
      * @params
      * @return
      */
-    List<Region> getRegionList();
+    List<Tree> getRegionList();
 }

@@ -2,7 +2,9 @@ package com.black.one.service.impl;
 
 import com.black.one.dao.TreeDao;
 import com.black.one.entity.Region;
+import com.black.one.model.Tree;
 import com.black.one.service.TreeService;
+import com.black.one.utils.TreeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,9 @@ public class TreeServiceImpl implements TreeService {
      * @params
      */
     @Override
-    public List<Region> getRegionList() {
-        return treeDao.getRegionList();
+    public List<Tree> getRegionList() {
+        List<Region> regionList = treeDao.getRegionList();
+        List<Tree> tree = TreeUtil.tree(regionList);
+        return tree;
     }
 }
