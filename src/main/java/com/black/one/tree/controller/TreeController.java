@@ -1,9 +1,8 @@
-package com.black.one.controller;
+package com.black.one.tree.controller;
 
 
-import com.black.one.entity.Region;
-import com.black.one.model.Tree;
-import com.black.one.service.TreeService;
+import com.black.one.tree.model.Tree;
+import com.black.one.tree.service.TreeService;
 import com.black.one.tool.ReturnMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

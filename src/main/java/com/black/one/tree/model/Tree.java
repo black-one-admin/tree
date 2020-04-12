@@ -1,4 +1,4 @@
-package com.black.one.model;
+package com.black.one.tree.model;
 
 import lombok.Getter;
 import lombok.Setter;

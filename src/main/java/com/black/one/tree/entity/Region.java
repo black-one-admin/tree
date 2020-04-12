@@ -1,4 +1,4 @@
-package com.black.one.entity;
+package com.black.one.tree.entity;
 
 
 import lombok.Data;

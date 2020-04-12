@@ -1,6 +1,6 @@
-package com.black.one.dao;
+package com.black.one.tree.dao;
 
-import com.black.one.entity.Region;
+import com.black.one.tree.entity.Region;
 
 import java.util.List;
 

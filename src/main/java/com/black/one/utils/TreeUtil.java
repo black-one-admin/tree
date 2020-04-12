@@ -1,7 +1,7 @@
 package com.black.one.utils;
 
-import com.black.one.entity.Region;
-import com.black.one.model.Tree;
+import com.black.one.tree.entity.Region;
+import com.black.one.tree.model.Tree;
 import com.black.one.tool.IsEmptyUtil;
 
 import java.util.ArrayList;

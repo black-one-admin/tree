@@ -1,7 +1,6 @@
-package com.black.one.service;
+package com.black.one.tree.service;
 
-import com.black.one.entity.Region;
-import com.black.one.model.Tree;
+import com.black.one.tree.model.Tree;
 
 import java.util.List;
 
