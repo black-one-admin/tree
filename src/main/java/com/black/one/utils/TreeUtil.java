@@ -17,26 +17,39 @@ import java.util.Map;
  */
 public class TreeUtil<T> {
 
-    public static List<Tree> tree(List<Region> list){
-      List<Tree> tree = new ArrayList<>();
-      Map<String, Region> map = new HashMap<>();
-      //查找根节点
-       list.stream().forEach(res->map.put(res.getId(),res));
-       list.stream().filter(res-> IsEmptyUtil.judge(res.getPid()))
-               .forEach(res->{
-                   Tree root = new Tree();
-                   root.setId(res.getId());
-                   root.setName(res.getName());
-                   tree.add(root);
-               } );
-        return tree;
-    }
+    public static List<Tree> tree(List<Region> regions){
+        List<Tree> data = new ArrayList<>();
+        //先遍历建数据保存到map集合中
+        Map<String,Tree> map = new HashMap<>();
+        regions.stream().forEach(res->{
+            Tree tree = new Tree();
+            tree.setId(res.getRegionguid());
+            tree.setPid(res.getRegionpguid());
+            tree.setName(res.getRegionname());
+            map.put(res.getRegionguid(),tree);
+            if (IsEmptyUtil.judge(tree.getPid())){
+                data.add(tree);
+            }
+        });
+        regions.stream().filter(res ->IsEmptyUtil.judge(res.getRegionpguid()))
+                .forEach(
+                     res->{System.out.println(res.getRegionguid());}
+                 );
 
+        regions.stream().filter(res->res.getRegionpguid()!=null).
+                forEach(res->{
+                    Tree child = map.get(res.getRegionguid());
+                    Tree parent = map.get(res.getRegionpguid());
+                    parent.getChild().add(child);
+                });
 
-    private static List<Tree> getChild(List<Tree> trees,Map<String, Region> map){
-       for (Tree tree : trees){
-
-       }
-        return null;
+//     for (Region region : regions){
+//         if (region.getRegionpguid()!=null){
+//             Tree child = map.get(region.getRegionguid());
+//             Tree parent = map.get(region.getRegionpguid());
+//             parent.getChild().add(child);
+//         }
+//     }
+        return data;
     }
 }

@@ -3,6 +3,7 @@ package com.black.one.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,5 +22,5 @@ public class Tree {
 
     private String name;
 
-    private List<Tree> child;
+    private List<Tree> child = new ArrayList<>();
 }

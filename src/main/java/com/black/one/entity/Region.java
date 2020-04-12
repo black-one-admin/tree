@@ -1,38 +1,20 @@
 package com.black.one.entity;
 
 
+import lombok.Data;
+
 /**
  * @Description  
  * @Author  Mr.hws
- * @Date 2020-04-06 
+ * @Date 2020-04-12 
  */
+@Data
 public class Region {
-	private String id;
-	private String pid;
-	private String name;
-
-	public String getId() {
-		return this.id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getPid() {
-		return this.pid;
-	}
-
-	public void setPid(String pid) {
-		this.pid = pid;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+	private String regionguid;
+	private String regionpguid;
+	private String regioncode;
+	private String regionname;
+	private String tenantguid;
+	private String shortname;
+	private String interfacecode;
 }

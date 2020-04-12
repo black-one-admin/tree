@@ -9,7 +9,7 @@ package com.black.one.tool;
 public class IsEmptyUtil {
 
     public static boolean judge(String is){
-        if (is == null || is == null){
+        if (is == null || is == ""){
             return true;
         }
         return false;
