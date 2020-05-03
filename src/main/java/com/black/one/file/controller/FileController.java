@@ -1,9 +1,10 @@
 package com.black.one.file.controller;
 
 import com.black.one.annotations.SystemClassAnnotation;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
+import com.black.one.file.param.Param;
+import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,8 +25,16 @@ public class FileController {
 
     @RequestMapping(value = "/upload",method = RequestMethod.GET)
     @ApiModelProperty("获取上传视图界面")
-    public String upload(){
-        return "upload";
+    @ApiImplicitParams({ @ApiImplicitParam(paramType = "query", dataType = "String", name = "upload", value = "页面名称", required = true) })
+    public String upload(String upload){
+        return upload;
+    }
+
+    @RequestMapping(value = "/param",method = RequestMethod.POST)
+    @ApiModelProperty("获取上传视图界面")
+    @ApiImplicitParams({ @ApiImplicitParam(paramType = "body", dataType = "Param", name = "param", value = "信息参数", required = true) })
+    public void  param(@RequestBody Param param){
+
     }
 
 

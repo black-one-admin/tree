@@ -1,5 +1,7 @@
 package com.black.one.tree.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,13 +16,15 @@ import java.util.List;
  */
 @Getter
 @Setter
+@ApiModel
 public class Tree {
 
+    @ApiModelProperty("树结构id")
     private String id;
-
+    @ApiModelProperty("树结构pid")
     private String pid;
-
+    @ApiModelProperty("名称")
     private String name;
-
+    @ApiModelProperty("子节点信息")
     private List<Tree> child = new ArrayList<>();
 }

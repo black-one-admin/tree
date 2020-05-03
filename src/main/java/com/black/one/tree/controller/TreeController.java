@@ -1,9 +1,12 @@
 package com.black.one.tree.controller;
 
 
+import com.black.one.annotations.SystemClassAnnotation;
+import com.black.one.tool.ReturnMessage;
 import com.black.one.tree.model.Tree;
 import com.black.one.tree.service.TreeService;
-import com.black.one.tool.ReturnMessage;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,18 +23,22 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/black/tree")
+@SystemClassAnnotation
+@Api("树结构")
 public class TreeController {
 
     @Autowired
     private TreeService treeService;
 
     @GetMapping("/test")
+    @ApiOperation("测试数据接口")
     public String test(){
         return "测试成功！";
     }
 
     @GetMapping("/json")
     @ResponseBody
+    @ApiOperation("返回值格式设置")
     public ReturnMessage json(){
         String hello = "aaa";
         return ReturnMessage.success("测试成功");
@@ -40,6 +47,7 @@ public class TreeController {
 
     @GetMapping("/info")
     @ResponseBody
+    @ApiOperation("返回树结构")
     public ReturnMessage info(){
         List<Tree> regionList = treeService.getRegionList();
         return ReturnMessage.success(regionList);

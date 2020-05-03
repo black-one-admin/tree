@@ -26,6 +26,15 @@ mybatis:
 logging:
   level:
     com.eth.wallet.mapper: debug
+  file:
+   path: /var/log/tomcat
 
 
 #配置阿里云oss数据库
+#阿里云地域节点
+endpoint: http://oss-cn-beijing.aliyuncs.com
+#bucket名称
+bucketName: suwenhai
+#RAM id 与秘钥
+accessKeyId: LTAI4FzS2TFSg7RxL1gWm9TP
+accessKeySecret: uAuy57MMfnOAV8EXeRTxfvL4HzP27T
