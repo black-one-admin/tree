@@ -1,4 +1,4 @@
-package com.black.one.file;
+package com.black.one.file.dao;
 
 import com.black.one.file.entity.Form;
 

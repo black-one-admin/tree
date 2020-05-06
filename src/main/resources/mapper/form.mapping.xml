@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.black.one.file.FileDao">
+<mapper namespace="com.black.one.file.dao.FileDao">
 
     <insert id="insertForm" parameterType="com.black.one.file.entity.Form">
         insert into t_form(id, upload, jpg, name, password)

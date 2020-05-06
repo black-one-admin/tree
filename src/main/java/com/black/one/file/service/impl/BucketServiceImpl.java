@@ -5,7 +5,7 @@ import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
 import com.aliyun.oss.model.*;
-import com.black.one.file.FileDao;
+import com.black.one.file.dao.FileDao;
 import com.black.one.file.entity.Form;
 import com.black.one.file.param.FileParam;
 import com.black.one.file.service.BucketService;
@@ -74,7 +74,9 @@ public class BucketServiceImpl implements BucketService {
             BufferedReader reader = new BufferedReader(new InputStreamReader(content));
             while (true) {
                 String line = reader.readLine();
-                if (line == null) break;
+                if (line == null) {
+                    break;
+                }
                 System.out.println("\n" + line);
             }
             // 数据读取完成后，获取的流必须关闭，否则会造成连接泄漏，导致请求无连接可用，程序无法正常工作。
@@ -161,6 +163,7 @@ public class BucketServiceImpl implements BucketService {
         for (File file : files) {
             if (file.exists()) {
                 file.delete();
+                log.info("删除成功");
             }
         }
     }
