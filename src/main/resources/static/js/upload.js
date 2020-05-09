@@ -52,8 +52,8 @@ function upload(start) {
 // 初始化上传大小
 function init() {
     let fileObj = document.getElementById('file').files[0];
-    console.log(fileObj)
-    $.post('/break/upload', {fileName: fileObj.name}, function(data) {
+    let size = fileObj.size;
+    $.post('/break/upload', {fileName: fileObj.name,size : size}, function(data) {
             console.log("返回信息"+data.toString())
             let start = parseInt(data);
             // 设置进度条
