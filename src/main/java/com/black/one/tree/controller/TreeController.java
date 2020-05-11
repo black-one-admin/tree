@@ -52,4 +52,20 @@ public class TreeController {
         List<Tree> regionList = treeService.getRegionList();
         return ReturnMessage.success(regionList);
     }
+
+    @GetMapping("/map")
+    @ResponseBody
+    @ApiOperation("将list集合转化为map集合")
+    public ReturnMessage map(){
+        Object map = treeService.map();
+        return ReturnMessage.success(map);
+    }
+
+    @GetMapping("/list")
+    @ResponseBody
+    @ApiOperation("将map集合转化为list集合")
+    public ReturnMessage list(){
+        Object map = treeService.list();
+        return ReturnMessage.success(map);
+    }
 }

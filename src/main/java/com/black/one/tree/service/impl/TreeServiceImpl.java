@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @program: tree
@@ -36,5 +38,25 @@ public class TreeServiceImpl implements TreeService {
         List<Region> regionList = treeDao.getRegionList();
         List<Tree> tree = TreeUtil.tree(regionList);
         return tree;
+    }
+
+    @Override
+    public Object map() {
+        List<Region> regionList = treeDao.getRegionList();
+        Map<String,Object> map= regionList.stream().collect(Collectors.toMap(Region::getRegionguid,Region::getRegionname));
+        Map<String,Object> map1= regionList.stream().collect(Collectors.toMap(Region::getRegionguid, res -> res));
+        Map<String,Object> map2= regionList.stream().collect(Collectors.toMap(res->res.getRegionguid(), res -> res));
+        return map2;
+    }
+
+    @Override
+    public Object list() {
+        Map<String, Region> map = treeDao.getMap();
+        //根据值映射
+        List<Region> values = map.values().stream().collect(Collectors.toList());
+        //根据键映射
+        List<String> key = map.keySet().stream().collect(Collectors.toList());
+
+        return values;
     }
 }

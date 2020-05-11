@@ -1,8 +1,10 @@
 package com.black.one.tree.dao;
 
 import com.black.one.tree.entity.Region;
+import org.apache.ibatis.annotations.MapKey;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: tree
@@ -13,4 +15,7 @@ import java.util.List;
 public interface TreeDao {
 
     List<Region> getRegionList();
+
+    @MapKey("regionguid")
+    Map<String,Region> getMap();
 }

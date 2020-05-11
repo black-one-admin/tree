@@ -6,4 +6,7 @@
         select * from t_region
     </select>
 
+    <select id="getMap" resultType="java.util.HashMap">
+        select regionguid, regionpguid, regioncode, regionname, tenantguid, shortname, interfacecode from t_region
+    </select>
 </mapper>

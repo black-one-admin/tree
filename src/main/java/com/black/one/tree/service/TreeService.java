@@ -19,4 +19,19 @@ public interface TreeService {
      * @return
      */
     List<Tree> getRegionList();
+
+
+    /**
+     *将list集合转化为map集合使用java8新特性
+     * @params
+     * @return
+     */
+    Object map();
+
+    /**
+     *将map集合转化为map集合
+     * @params
+     * @return
+     */
+    Object list();
 }
