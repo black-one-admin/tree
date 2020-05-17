@@ -24,6 +24,13 @@ import java.util.concurrent.*;
 @Slf4j
 public class ThreadServiceImpl implements ThreadService {
 
+
+    /**
+     *使用autowired与使用resource区别，autowired 为按类型注入，而resource为按byname注入
+     * autowired属于spring可以与qualifier,若引许为null,required=false，而resource属于j2ee,使用名称注入name
+     * @params
+     * @return
+     */
     @Autowired
     private TreeDao treeDao;
 
@@ -95,4 +102,49 @@ public class ThreadServiceImpl implements ThreadService {
         new Thread(myThread).start();
         return "200";
     }
+
+    /**
+     *自定义线程池
+     * @params
+     * @return
+     */
+    @Override
+    public Object definePool() {
+
+
+        return null;
+    }
+
+    /**
+     *定长线程池
+     * @params
+     * @return
+     */
+    private void fixedThreadPool(){
+        ExecutorService executorService = Executors.newFixedThreadPool(15);
+    }
+
+    /**
+     *缓存线程池
+     * @params
+     * @return
+     */
+    private void cacheThreadPool(){}
+
+    /**
+     *定时线程池
+     * @params
+     * @return
+     */
+    private void schduleThreadPool(){}
+
+
+    /**
+     *单例线程池
+     * @params
+     * @return
+     */
+    private void singleThreadPool(){}
+
+
 }

@@ -28,4 +28,11 @@ public interface ThreadService {
 
 
     String runable();
+
+    /**
+     *自定义线程池
+     * @params
+     * @return
+     */
+    Object definePool();
 }

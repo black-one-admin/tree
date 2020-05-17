@@ -47,4 +47,11 @@ public class ThreadController {
     public String runable(){
         return threadService.runable();
     }
+
+
+    @GetMapping("/definePool")
+    @ApiOperation(value = "自定义线程池", notes = "自定义线程池", produces = "application/json")
+    public Object definePool(){
+        return threadService.definePool();
+    }
 }
