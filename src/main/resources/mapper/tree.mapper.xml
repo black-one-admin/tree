@@ -9,4 +9,14 @@
     <select id="getMap" resultType="java.util.HashMap">
         select regionguid, regionpguid, regioncode, regionname, tenantguid, shortname, interfacecode from t_region
     </select>
+
+    <select id="countRegion" resultType="int">
+        select count(1) from t_region
+    </select>
+
+    <select id="getList" resultType="com.black.one.tree.entity.Region">
+        select * from ${table}
+        where regionname like '%满族%'
+        limit #{bindex},#{num}
+    </select>
 </mapper>

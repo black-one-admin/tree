@@ -18,4 +18,14 @@ public interface TreeDao {
 
     @MapKey("regionguid")
     Map<String,Region> getMap();
+
+    /**
+     *查询数据库数据有多少
+     * @params
+     * @return
+     */
+    Integer countRegion();
+
+
+    List<Region> getList(int bindex,int num,String table);
 }
