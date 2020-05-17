@@ -56,7 +56,11 @@ public class DefineThreadPoolExecutor implements Runnable{
             threadPoolExecutor.submit(defineThreadPoolExecutor);
         }
         Thread.sleep(5000);
+
+        //关闭线程池，仅仅是不在接收新的任务，以前的任务还会继续执行
         threadPoolExecutor.shutdown();
+        //没有执行的任务也会被停止执行
+        threadPoolExecutor.shutdownNow();
 
 //        threadPoolExecutor.execute(new Runnable() {
 //            @Override
