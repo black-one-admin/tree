@@ -38,3 +38,8 @@ bucketName: suwenhai
 #RAM id 与秘钥
 accessKeyId: LTAI4FzS2TFSg7RxL1gWm9TP
 accessKeySecret: uAuy57MMfnOAV8EXeRTxfvL4HzP27T
+
+
+#微信认证token
+weixin:
+  token: blackone

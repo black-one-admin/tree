@@ -15,7 +15,7 @@ public class WeChatParam {
 
     private String timestamp;
 
-    private Long nonce;
+    private String nonce;
 
     private String echostr;
 }
