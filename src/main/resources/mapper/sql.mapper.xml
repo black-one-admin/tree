@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.black.one.sql.dao.SqlMapper">
+
+    <resultMap id="postMap" type="com.black.one.sql.entity.TPost">
+        <id column="postguid" property="postguid"/>
+        <association property="tRegion" javaType="com.black.one.sql.entity.TRegion">
+            <id column="regionguid" property="regionguid"></id>
+            <result column="regionname" property="regionname"></result>
+        </association>
+    </resultMap>
+
+    <select id="getRgion" resultMap="postMap">
+        select * from t_post left join t_region
+        on t_post.regionguid = t_region.regionguid
+        where t_post.regionguid = '011'
+    </select>
+
+    <resultMap id="functionMap" type="com.black.one.sql.entity.TPost">
+        <id column="postguid" property="postguid"/>
+        <result column="postname" property="postname"></result>
+        <result column="posttype" property="posttype"></result>
+        <result column="remark" property="remark"></result>
+        <collection property="tFunctions"  javaType="java.util.List"
+                    ofType="com.black.one.sql.entity.TFunction">
+            <id column="funid" property="funid"></id>
+            <result column="functionname" property="functionname"></result>
+            <result column="functiontype" property="functiontype"></result>
+            <result column="funpid" property="funpid"></result>
+            <result column="javaevent" property="javaevent"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getPostInfo" resultMap="functionMap">
+        select * from t_postright left join t_post
+        on t_post.postguid = t_postright.postguid
+        left join t_function on t_postright.funid = t_function.funid
+        where t_post.regionguid = '011'
+    </select>
+</mapper>
