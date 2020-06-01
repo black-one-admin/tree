@@ -17,4 +17,11 @@ public interface WeChatService {
     String param(WeChatParam param)throws AesException;
 
    void message(HttpServletRequest request, HttpServletResponse response) throws Exception;
+
+   /**
+    *获取access_token
+    * @params
+    * @return
+    */
+   void token();
 }

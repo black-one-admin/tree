@@ -43,3 +43,7 @@ accessKeySecret: uAuy57MMfnOAV8EXeRTxfvL4HzP27T
 #微信认证token
 weixin:
   token: blackone
+  url: https://api.weixin.qq.com/cgi-bin/token
+  granttype: client_credential
+  appid: wxb1b677f316fea0a5
+  secret: 54144829eba612a12872d0bca7313c9e

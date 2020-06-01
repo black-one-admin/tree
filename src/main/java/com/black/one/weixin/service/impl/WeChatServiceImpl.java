@@ -1,15 +1,22 @@
 package com.black.one.weixin.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.black.one.weixin.exception.AesException;
 import com.black.one.weixin.message.TextMessage;
 import com.black.one.weixin.param.WeChatParam;
+import com.black.one.weixin.pojo.AccessToken;
 import com.black.one.weixin.service.WeChatService;
 import com.black.one.weixin.utils.ParseXml;
 import com.black.one.weixin.utils.SignUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +37,16 @@ import java.util.Map;
 @Primary
 public class WeChatServiceImpl implements WeChatService {
 
-
+    @Autowired
+    private RestTemplate restTemplate;
+    @Value("${weixin.granttype}")
+    private String granttype;
+    @Value("${weixin.appid}")
+    private String appid;
+    @Value("${weixin.secret}")
+    private String secret;
+    @Value("${weixin.url}")
+    private String url;
 
     @SneakyThrows
     @Override
@@ -74,4 +90,18 @@ public class WeChatServiceImpl implements WeChatService {
     }
 
 
+    @Override
+    public void token() {
+        //HttpEntity<String> request = new HttpEntity<String>(personJsonObject.toString(), headers);
+        // String personResultAsJsonStr = restTemplate.postForObject(createPersonUrl, request, String.class);
+
+        this.url = this.url+"?grant_type="+granttype+"&appid="+appid+"&secret="+secret;
+        ResponseEntity<String> forEntity = restTemplate.getForEntity(url,String.class);
+        System.out.println(forEntity);
+        JSONObject jsonObject = JSON.parseObject(forEntity.getBody());
+        System.out.println("返回值："+jsonObject.getString("access_token"));
+        System.out.println("返回值："+jsonObject.getString("expires_in"));
+        AccessToken accessToken = new AccessToken(jsonObject.getString("access_token"), jsonObject.getString("expires_in"));
+        log.info("过期时间计算"+accessToken.toString());
+    }
 }

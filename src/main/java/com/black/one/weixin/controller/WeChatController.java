@@ -48,4 +48,11 @@ public class WeChatController {
        weChatService.message(request, response);
     }
 
+
+    @ApiOperation("发送请求，获取token")
+    @RequestMapping(path = "/token",method = RequestMethod.POST)
+    @ResponseBody
+    public void token(){
+
+    }
 }

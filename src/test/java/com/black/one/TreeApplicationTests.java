@@ -3,6 +3,7 @@ package com.black.one;
 import com.black.one.sql.dao.SqlMapper;
 import com.black.one.sql.entity.TFunction;
 import com.black.one.sql.entity.TPost;
+import com.black.one.weixin.service.WeChatService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class TreeApplicationTests {
 
     @Autowired
     private SqlMapper sqlMapper;
+    @Autowired
+    private WeChatService weChatService;
 
     @Test
     public void contextLoads() {
@@ -42,7 +45,11 @@ public class TreeApplicationTests {
                 .collect(Collectors.toMap(TFunction::getFunid, res -> res));
 
         System.out.println("转化后map集合大小"+collect.size());
+    }
 
 
+    @Test
+    public void toekn() {
+        weChatService.token();
     }
 }
