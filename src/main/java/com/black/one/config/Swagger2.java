@@ -6,6 +6,7 @@ import com.black.one.annotations.SystemClassAnnotation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Scope(value="singleton")表示作用域为单例模式
  * @Classname Swagger2
  * @Description swagger自定义配置
  * @Date 2019-03-14 23:01
@@ -29,6 +31,7 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
+@Scope(value="singleton")
 public class Swagger2 {
 
     private final static String ACCESS_TOKEN_KEY="access_token";
