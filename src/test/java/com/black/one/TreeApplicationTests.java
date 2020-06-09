@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -52,4 +53,14 @@ public class TreeApplicationTests {
     public void toekn() {
         weChatService.token();
     }
+
+    @Test
+    public void condition(){
+        Map<String,String> map = new HashMap<>();
+        map.put("postguid", "8a80806a5c7720f3015c7720f35c0000");
+        map.put("regionguid", "011");
+        List<TPost> condition = sqlMapper.getCondition(map);
+        condition.stream().forEach(res-> System.out.println(res.toString()));
+    }
+
 }

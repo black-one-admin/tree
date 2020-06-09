@@ -37,4 +37,16 @@
         left join t_function on t_postright.funid = t_function.funid
         where t_post.regionguid = '011'
     </select>
+
+    <select id="getCondition" resultType="com.black.one.sql.entity.TPost">
+        select * from t_post
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="postguid != null">
+                and postguid = #{postguid}
+            </if>
+            <if test="regionguid != null">
+                and regionguid = #{regionguid}
+            </if>
+        </trim>
+    </select>
 </mapper>

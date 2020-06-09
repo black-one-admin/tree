@@ -3,6 +3,7 @@ package com.black.one.sql.dao;
 import com.black.one.sql.entity.TPost;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * dao接口
@@ -21,4 +22,13 @@ public interface SqlMapper {
      * @return
      */
     TPost getPostInfo();
+
+
+
+    /**
+     *根据条件查询岗位信息
+     * @params
+     * @return
+     */
+    List<TPost> getCondition(Map map);
 }
