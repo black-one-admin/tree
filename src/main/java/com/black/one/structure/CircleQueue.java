@@ -64,6 +64,11 @@ public class CircleQueue<E> {
         elements = newElements;
         front = 0;
     }
+
+    private int index(int index){
+        index += front;
+        return index - (index >= elements.length ? elements.length : 0);
+    }
 }
 
 
